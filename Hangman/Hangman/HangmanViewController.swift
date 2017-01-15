@@ -8,14 +8,14 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class HangmanViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         let hangmanPhrases = HangmanPhrases()
-        let phrase = hangmanPhrases.getRandomPhrase()
+        // Generate a random phrase for the user to guess
+        let phrase: String = hangmanPhrases.getRandomPhrase()
         print(phrase)
     }
 

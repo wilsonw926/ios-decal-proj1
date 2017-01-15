@@ -9,6 +9,7 @@
 import Foundation
 
 class HangmanPhrases {
+    
     var phrases : NSArray!
     
     // Initialize HangmanPhrase with an array of all possible phrases of the Hangman game
@@ -18,7 +19,7 @@ class HangmanPhrases {
     }
     
     // Get random phrase from all available phrases
-    func getRandomPhrase() -> String! {
+    func getRandomPhrase() -> String {
         let index = Int(arc4random_uniform(UInt32(phrases.count)))
         return phrases.object(at: index) as! String
     }
