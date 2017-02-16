@@ -10,6 +10,12 @@ import UIKit
 
 class HangmanViewController: UIViewController {
 
+    @IBOutlet weak var Word: UILabel!
+    @IBOutlet weak var IncorrectGuesses: UILabel!
+    @IBOutlet weak var LettersList: UITextField!
+    @IBOutlet weak var GuessButton: UIButton!
+    @IBOutlet weak var HangmanState: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
