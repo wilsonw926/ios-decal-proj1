@@ -47,10 +47,10 @@ class HangmanViewController: UIViewController {
         //storing characters into Array
         phraseArray = [Character](phrase.characters)
         phraseLength = phraseArray.count
+        phraseSet = Set<String>()
         
         //searched stackoverflow for adding values into Boolean Array
         correctGuesses = [Bool](repeating: false, count: phraseLength!)
-        
         let range = 0..<phraseLength!
         for index in range {
             if (String(phraseArray[index]) == " ") {
@@ -103,18 +103,17 @@ class HangmanViewController: UIViewController {
                     }
                 WordBlanks()
                 }
-            if (determineWinner()) {
-                let alertController = UIAlertController(
-                    title: "You Won!!",
-                    message: "Play Again?",
-                    preferredStyle: .alert)
-                let newGame = UIAlertAction(title: "Sure!!", style: .default) {
-                    action in self.viewDidLoad()
+                if (determineWinner()) {
+                    let alertController = UIAlertController(
+                        title: "You Won!!",
+                        message: "Play Again?",
+                        preferredStyle: .alert)
+                    let newGame = UIAlertAction(title: "Sure!!", style: .default) {
+                        action in self.viewDidLoad()
+                    }
+                    alertController.addAction(newGame)
+                    self.present(alertController, animated: true, completion: nil)
                 }
-                alertController.addAction(newGame)
-                self.present(alertController, animated: true, completion: nil)
-
-            }
             } else {
                 if !incorrectGuesses.contains(String(guessedLetter!)) {
                     incorrectGuesses.insert(String(guessedLetter!), at: wrongGuessesCount - 1)
